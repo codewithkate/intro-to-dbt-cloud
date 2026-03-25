@@ -1,0 +1,21 @@
+with 
+
+source as (
+
+    select * 
+    from {{ source('jaffle_shop', 'customers') }}
+
+),
+
+renamed as (
+
+    select
+        id as customers_id
+        ,first_name
+        ,last_name
+
+    from source
+
+)
+
+select * from renamed
